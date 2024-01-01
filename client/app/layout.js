@@ -12,7 +12,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className="dark">
       <body className={inter.className}>
         <NextUIProvider>
-          <NavbarMain>{children}</NavbarMain>
+          <NavbarMain />
+          {children}
         </NextUIProvider>
       </body>
     </html>
