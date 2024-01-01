@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import NavbarMain from "../components/nav/NavbarMain";
 import { NextUIProvider } from "@nextui-org/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <NextUIProvider>{children}</NextUIProvider>
+        <NextUIProvider>
+          <NavbarMain>{children}</NavbarMain>
+        </NextUIProvider>
       </body>
     </html>
   );
