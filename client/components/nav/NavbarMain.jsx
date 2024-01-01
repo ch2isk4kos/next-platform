@@ -34,26 +34,35 @@ export default function NavbarMain() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        {/* <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">ACME</p>
-        </NavbarBrand> */}
+        <NavbarBrand>
+          <Link color="foreground" href="/">
+            <p className="font-bold text-inherit">ONE STOP</p>
+          </Link>
+        </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
+          <Link color="foreground" href="#"></Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+          <Link href="#" aria-current="#">
+            Blog
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link color="foreground" href="/social">
+            Social
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/">
+            AI Assistant
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/">
+            Shop
           </Link>
         </NavbarItem>
       </NavbarContent>
