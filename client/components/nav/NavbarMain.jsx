@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Navbar,
@@ -10,9 +11,11 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
+import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function NavbarMain() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  useUser();
 
   const menuItems = [
     "Profile",
@@ -74,6 +77,9 @@ export default function NavbarMain() {
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
+        </NavbarItem>
+        <NavbarItem>
+          <UserButton afterSignOutUrl="/" />
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
