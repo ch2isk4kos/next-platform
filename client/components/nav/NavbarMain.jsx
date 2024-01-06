@@ -72,9 +72,8 @@ export default function NavbarMain() {
       {isLoaded && user && (
         <NavbarContent justify="end">
           <Link color="foreground" href="/dashboard">
-            Dashboard
+            <UserButton afterSignOutUrl="/" />
           </Link>
-          <UserButton afterSignOutUrl="/" />
         </NavbarContent>
       )}
       <NavbarItem className="hidden lg:flex">
