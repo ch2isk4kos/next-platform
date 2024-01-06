@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  const { userId } = auth();
+  const { userId } = auth(); // server side
   if (userId) redirect("/dashboard");
 
   return (
