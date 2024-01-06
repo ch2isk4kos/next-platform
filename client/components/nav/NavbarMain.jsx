@@ -54,8 +54,8 @@ export default function NavbarMain() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/social">
-            Social
+          <Link color="foreground" href="/products">
+            Products
           </Link>
         </NavbarItem>
         <NavbarItem>
