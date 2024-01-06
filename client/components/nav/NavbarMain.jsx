@@ -15,7 +15,7 @@ import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function NavbarMain() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  useUser();
+  const { user, isLoaded } = useUser();
 
   const menuItems = [
     "Profile",
