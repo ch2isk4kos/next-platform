@@ -10,10 +10,10 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen`}>
         <NextUIProvider>
           <NavbarMain />
-          {children}
+          <div className="flex justify-center items-center">{children}</div>
         </NextUIProvider>
       </body>
     </html>
