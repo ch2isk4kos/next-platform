@@ -70,25 +70,19 @@ export default function NavbarMain() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {!user ||
-          (!isLoaded && (
-            <>
-              {/* <NavbarItem className="hidden lg:flex"> */}
-              <NavbarItem className="">
-                <Link href="/sign-in">Sign In</Link>
-              </NavbarItem>
-              <NavbarItem>
-                <Button
-                  as={Link}
-                  color="primary"
-                  href="/sign-up"
-                  variant="flat"
-                >
-                  Sign Up
-                </Button>
-              </NavbarItem>
-            </>
-          ))}
+        {!user && (
+          <>
+            {/* <NavbarItem className="hidden lg:flex"> */}
+            <NavbarItem className="">
+              <Link href="/sign-in">Sign In</Link>
+            </NavbarItem>
+            <NavbarItem>
+              <Button as={Link} color="primary" href="/sign-up" variant="flat">
+                Sign Up
+              </Button>
+            </NavbarItem>
+          </>
+        )}
         {isLoaded && (
           <NavbarItem className="hidden lg:flex">
             <UserButton afterSignOutUrl="/" />
