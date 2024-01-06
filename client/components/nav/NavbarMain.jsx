@@ -70,18 +70,24 @@ export default function NavbarMain() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
+        {isLoaded && user && (
+          <>
+            <Link color="foreground" href="/dashboard">
+              Dashboard
+            </Link>
+            <UserButton afterSignOutUrl="/" />
+          </>
+        )}
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
-        <NavbarItem>
-          <UserButton afterSignOutUrl="/" />
-        </NavbarItem>
       </NavbarContent>
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
