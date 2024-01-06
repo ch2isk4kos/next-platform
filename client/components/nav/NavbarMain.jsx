@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React from "react";
 import {
   Navbar,
@@ -69,22 +69,32 @@ export default function NavbarMain() {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      {isLoaded && user && (
-        <NavbarContent justify="end">
-          <Link color="foreground" href="/dashboard">
+      <NavbarContent justify="end">
+        {!user ||
+          (!isLoaded && (
+            <>
+              {/* <NavbarItem className="hidden lg:flex"> */}
+              <NavbarItem className="">
+                <Link href="/sign-in">Sign In</Link>
+              </NavbarItem>
+              <NavbarItem>
+                <Button
+                  as={Link}
+                  color="primary"
+                  href="/sign-up"
+                  variant="flat"
+                >
+                  Sign Up
+                </Button>
+              </NavbarItem>
+            </>
+          ))}
+        {isLoaded && (
+          <NavbarItem className="hidden lg:flex">
             <UserButton afterSignOutUrl="/" />
-          </Link>
-        </NavbarContent>
-      )}
-      <NavbarItem className="hidden lg:flex">
-        <Link href="#">Login</Link>
-      </NavbarItem>
-      <NavbarItem>
-        <Button as={Link} color="primary" href="" variant="flat">
-          Sign Up
-        </Button>
-      </NavbarItem>
-
+          </NavbarItem>
+        )}
+      </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
