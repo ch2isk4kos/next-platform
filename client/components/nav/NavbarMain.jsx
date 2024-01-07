@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -8,14 +7,16 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-  Link,
   Button,
 } from "@nextui-org/react";
+import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function NavbarMain() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, isLoaded } = useUser();
+  const { user } = useUser();
+  const pathname = usePathname();
 
   const menuItems = [
     "Profile",
@@ -46,15 +47,16 @@ export default function NavbarMain() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#"></Link>
-        </NavbarItem>
-        <NavbarItem isActive>
           <Link href="#" aria-current="#">
             Blog
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/products">
+          <Link
+            className={`link ${pathname === "/products" ? "active" : ""}`}
+            color="foreground"
+            href="/products"
+          >
             Products
           </Link>
         </NavbarItem>
@@ -69,6 +71,7 @@ export default function NavbarMain() {
           </Link>
         </NavbarItem>
       </NavbarContent>
+
       <NavbarContent justify="end">
         {user ? (
           <NavbarItem className="hidden lg:flex">
@@ -87,6 +90,7 @@ export default function NavbarMain() {
           </>
         )}
       </NavbarContent>
+
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
