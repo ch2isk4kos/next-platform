@@ -1,5 +1,5 @@
-// "use client";
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -14,7 +14,7 @@ import {
 import { UserButton, useUser } from "@clerk/nextjs";
 
 export default function NavbarMain() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, isLoaded } = useUser();
 
   const menuItems = [
@@ -70,9 +70,12 @@ export default function NavbarMain() {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        {!user && (
+        {user ? (
+          <NavbarItem className="hidden lg:flex">
+            <UserButton afterSignOutUrl="/" />
+          </NavbarItem>
+        ) : (
           <>
-            {/* <NavbarItem className="hidden lg:flex"> */}
             <NavbarItem className="">
               <Link href="/sign-in">Sign In</Link>
             </NavbarItem>
@@ -82,11 +85,6 @@ export default function NavbarMain() {
               </Button>
             </NavbarItem>
           </>
-        )}
-        {isLoaded && (
-          <NavbarItem className="hidden lg:flex">
-            <UserButton afterSignOutUrl="/" />
-          </NavbarItem>
         )}
       </NavbarContent>
       <NavbarMenu>
