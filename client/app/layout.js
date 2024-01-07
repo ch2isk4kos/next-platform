@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
-// import NavbarMain from "../components/nav/NavbarMain";
-import NavbarSecondary from "../components/nav/NavbarSecondary";
+import NavbarMain from "../components/nav/NavbarMain";
+// import NavbarSecondary from "../components/nav/NavbarSecondary";
 // import NavbarTertiary from "../components/nav/NavbarTertiary";
 import { NextUIProvider } from "@nextui-org/react";
 import { ClerkProvider } from "@clerk/nextjs";
